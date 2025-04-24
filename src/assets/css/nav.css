@@ -1,0 +1,62 @@
+.navmobile {
+  display: none;
+}
+
+.logoText {
+  background: linear-gradient(to right, #ffffff, #e0e0ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.nav-transition {
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(72, 187, 120, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+  }
+}
+
+.online-indicator {
+  animation: pulse 2s infinite;
+}
+
+@media screen and (max-width: 768px) {
+  .navlinks {
+    display: none;
+  }
+  .navbtn {
+    display: flex;
+  }
+  .navmobile {
+    display: flex;
+  }
+}
+.navv {
+  display: flex;
+}
+.navvbtn {
+  display: none;
+}
+@media screen and (max-width: 875px) {
+  .navv {
+    display: none;
+  }
+  .navvbtn {
+    display: flex;
+  }
+}
