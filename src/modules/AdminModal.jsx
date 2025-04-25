@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Axios from '../Axios'
 import { Eye, EyeOff, Loader2, Save } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { mutate } from 'swr'
 
 export const AdminModal = ({ isOpen, setIsOpen }) => {
   const [error, setError] = useState('')
@@ -14,7 +14,6 @@ export const AdminModal = ({ isOpen, setIsOpen }) => {
     phoneNumber: ''
   })
   const [showPassword, setShowPassword] = useState(false)
-  const navigate = useNavigate()
 
   const togglePasswordVisibility = () => {
     setShowPassword(prev => !prev)
@@ -31,7 +30,8 @@ export const AdminModal = ({ isOpen, setIsOpen }) => {
     setLoading(true)
     try {
       await Axios.post('/admin/create', adminData)
-      navigate('/admin')
+      mutate('/admin')
+      setIsOpen(false)
     } catch (err) {
       setError(err.response?.data?.message || 'Нимадир нотўғри кетди')
     } finally {

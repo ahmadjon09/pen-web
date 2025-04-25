@@ -1,6 +1,8 @@
-import { Trash2 } from 'lucide-react'
+import { BadgeCheck, Trash2 } from 'lucide-react'
+import VIP from '../../assets/vip.png'
 
 export const AdminTable = ({ admins, handleDelete }) => {
+  const isBoss = '673d5e4960bd823f58d06592'
   return (
     <div className='bg-white rounded-lg shadow-md overflow-hidden'>
       <div className='h-full w-full pb-5 overflow-x-auto'>
@@ -18,7 +20,11 @@ export const AdminTable = ({ admins, handleDelete }) => {
             {admins?.map(admin => (
               <tr
                 key={admin._id}
-                className='hover:bg-blue-50 transition-colors cursor-pointer'
+                className={` transition-colors ${
+                  admin._id == isBoss
+                    ? 'bg-amber-100 cursor-not-allowed'
+                    : 'hover:bg-blue-50 cursor-pointer'
+                }`}
               >
                 <td className='py-3 px-2 sm:px-6'>
                   <div className='flex items-center gap-3'>
@@ -30,9 +36,18 @@ export const AdminTable = ({ admins, handleDelete }) => {
                       />
                     </div>
                     <div className='flex flex-col'>
-                      <span className='font-medium text-gray-800 truncate max-w-[150px]'>
-                        {admin.firstName || 'Номсиз aдмин'}
-                      </span>
+                      <div
+                        className={
+                          admin._id === isBoss
+                            ? 'font-bold text-yellow-400 flex items-start gap-1'
+                            : ''
+                        }
+                      >
+                        {admin.firstName || '-'}
+                        {admin._id === isBoss && (
+                          <BadgeCheck size={13} color='dodgerblue' />
+                        )}
+                      </div>
                       <span className='font-medium text-gray-500 truncate text-[10px]  max-w-[150px]'>
                         {admin.lastName || '-'}
                       </span>
@@ -40,7 +55,17 @@ export const AdminTable = ({ admins, handleDelete }) => {
                   </div>
                 </td>
                 <td className='py-3 px-2 sm:px-6 text-gray-600'>
-                  {admin.firstName || '-'}
+                  <div
+                    className={
+                      admin._id === isBoss &&
+                      'font-bold text-yellow-400 flex items-start gap-1'
+                    }
+                  >
+                    {admin.firstName || '-'}
+                    {admin._id === isBoss && (
+                      <BadgeCheck size={13} color='dodgerblue' />
+                    )}
+                  </div>
                 </td>
                 <td className='py-3 px-2 sm:px-6 text-gray-600'>
                   {admin.lastName || '-'}
@@ -53,15 +78,19 @@ export const AdminTable = ({ admins, handleDelete }) => {
                   </div>
                 </td>
                 <td className='py-3 px-2 sm:px-4 text-center'>
-                  <button
-                    onClick={e => {
-                      e.stopPropagation()
-                      handleDelete(admin._id)
-                    }}
-                    className='bg-red-500 text-white rounded-md p-1.5 hover:bg-red-600 transition-colors'
-                  >
-                    <Trash2 className='text-white w-4 h-4' />
-                  </button>
+                  {admin._id === isBoss ? (
+                    <img className='w-10 mx-auto' src={VIP} alt='vip' />
+                  ) : (
+                    <button
+                      onClick={e => {
+                        e.stopPropagation()
+                        handleDelete(admin._id)
+                      }}
+                      className='bg-red-500 text-white rounded-md p-1.5 hover:bg-red-600 transition-colors'
+                    >
+                      <Trash2 className='text-white w-4 h-4' />
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}

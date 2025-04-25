@@ -12,7 +12,9 @@ import { Root } from './layout/Root'
 import { Login } from './pages/Login'
 import { Auth } from './layout/Auth'
 import { Admins } from './pages/Admins'
-import { Home } from './pages/Товарлар/Home'
+import { Home } from './pages/Goods/Home'
+import { Orders } from './pages/Orders'
+import { Bricks } from './pages/Bricks'
 
 export default function App () {
   const { isAuth, isPending } = useSelector(state => state.admin)
@@ -48,7 +50,9 @@ export default function App () {
           children: [
             { index: true, element: <Home /> },
             { path: 'admin', element: <Admins /> },
-            { path: 'login', element: <Login /> }
+            { path: 'login', element: <Login /> },
+            { path: 'orders', element: <Orders /> },
+            { path: 'bricks', element: <Bricks /> }
           ]
         }
       : {

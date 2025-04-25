@@ -31,7 +31,7 @@ export const Nav = () => {
     { name: 'Келган товар', path: '/', icon: <Package size={18} /> },
     { name: 'Админлар', path: '/admin', icon: <ShieldUser size={18} /> },
     { name: 'Буюртмалар', path: '/orders', icon: <ListOrdered size={18} /> },
-    { name: 'Гишт', path: '/bricks', icon: <Cuboid size={18} /> },
+    { name: 'Ғиш', path: '/bricks', icon: <Cuboid size={18} /> },
     { name: 'Ишчилар', path: '/workers', icon: <Pickaxe size={18} /> },
     { name: 'Ишчилар куни', path: '/workers/day', icon: <Calendar size={18} /> }
   ]

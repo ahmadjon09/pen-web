@@ -4,12 +4,12 @@ import useSWR, { mutate } from 'swr'
 import Axios from '../../Axios'
 import '../../assets/css/home.css'
 import { ProductModal } from '../../modules/ProductModal'
-import { SearchBar } from '../../components/product/search-bar'
-import { ProductTable } from '../../components/product/product-table'
-import { EmptyState } from '../../components/product/empty-state'
+import { SearchBar } from '../../components/Goods/search-bar'
+import { ProductTable } from '../../components/Goods/product-table'
+import { EmptyState } from '../../components/Goods/empty-state'
 import { LoadingState } from '../../components/loading-state'
-import { ErrorState } from '../../components/admin/error-state'
-import { Month } from './Month'
+import { ErrorState } from '../../components/error-state'
+import { Month } from '../Month'
 
 export const Home = () => {
   const { data, isLoading, error } = useSWR('/goods', Axios)
@@ -145,7 +145,6 @@ export const Home = () => {
           ) : filteredProducts.length > 0 ? (
             <ProductTable
               products={filteredProducts}
-              openEditModal={openEditModal}
               handleDelete={handleDelete}
             />
           ) : (
@@ -155,9 +154,7 @@ export const Home = () => {
       ) : (
         <Month data={products} />
       )}
-      {isModalOpen && (
-        <ProductModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
-      )}
+      {isModalOpen && <ProductModal setIsOpen={setIsModalOpen} />}
     </div>
   )
 }

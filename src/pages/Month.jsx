@@ -1,6 +1,6 @@
 import moment from 'moment-timezone'
 import React from 'react'
-import { formatCount } from '../../middlewares/format'
+import { formatCount } from '../middlewares/format'
 
 export const Month = ({ data }) => {
   const monthlyTotals = data.reduce((acc, goods) => {
@@ -32,7 +32,7 @@ export const Month = ({ data }) => {
             <tr>
               <th className='py-3 px-6 text-left'>Ой</th>
               <th className='py-3 px-6 text-left'>Умумий миқдор</th>
-              <th className='py-3 px-6 text-left'>Умумий сарфланган пул</th>
+              <th className='py-3 px-6 text-left'>Умумий пул</th>
             </tr>
           </thead>
           <tbody className='divide-y divide-gray-200'>
