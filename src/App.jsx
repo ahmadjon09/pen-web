@@ -1,5 +1,5 @@
 import Axios from './Axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Loading } from './components/Loading'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -16,6 +16,7 @@ import { Home } from './pages/Goods/Home'
 import { Orders } from './pages/Orders'
 import { Bricks } from './pages/Bricks'
 import { Workers } from './pages/Workers'
+import { Error } from './components/Error'
 
 export default function App () {
   const { isAuth, isPending } = useSelector(state => state.admin)
@@ -55,6 +56,7 @@ export default function App () {
             { path: 'orders', element: <Orders /> },
             { path: 'bricks', element: <Bricks /> },
             { path: 'workers', element: <Workers /> },
+            { path: 'err', element: <Error /> },
             { path: '*', element: <Error /> }
           ]
         }
