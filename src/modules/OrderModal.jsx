@@ -41,10 +41,10 @@ export const OrderModal = ({ setIsOpen }) => {
         count: orderData.count
       })
       mutate('/client')
+      setIsOpen(false)
     } catch (err) {
       setError(err.response?.data?.message || 'Нимадир нотўғри кетди')
     } finally {
-      setIsOpen(false)
       setLoading(false)
     }
   }

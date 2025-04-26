@@ -80,11 +80,6 @@ export const Home = () => {
     setIsModalOpen(true)
   }
 
-  const openEditModal = id => {
-    setEditProductId(id)
-    setIsModalOpen(true)
-  }
-
   const clearSearch = () => {
     setSearchTerm('')
   }

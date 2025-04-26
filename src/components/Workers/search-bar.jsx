@@ -45,8 +45,6 @@ export const SearchBar = ({
         return <Search className='h-4 w-4' />
       case 'date':
         return <Calendar className='h-4 w-4' />
-      case 'count':
-        return <Package className='h-4 w-4' />
       case 'phone':
         return <PhoneCall className='h-4 w-4' />
       default:
@@ -62,8 +60,6 @@ export const SearchBar = ({
         return 'Сана бўйича қидириш... (КК.ОО.ЙЙЙЙ)'
       case 'phone':
         return ' 98 765 43 21'
-      case 'count':
-        return 'Омбордаги миқдори бўйича қидириш...'
       default:
         return 'Қидириш...'
     }
@@ -122,17 +118,6 @@ export const SearchBar = ({
             >
               <Calendar className='h-4 w-4' />
               Сана бўйича
-            </button>
-            <button
-              onClick={() => handleSearchByChange('count')}
-              className={`flex items-center gap-2 w-full text-left px-4 py-2 text-sm hover:bg-blue-50 ${
-                searchBy === 'count'
-                  ? 'bg-blue-100 text-blue-700'
-                  : 'text-gray-700'
-              }`}
-            >
-              <Package className='h-4 w-4' />
-              Миқдори бўйича
             </button>
             <button
               onClick={() => handleSearchByChange('phone')}

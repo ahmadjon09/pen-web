@@ -20,7 +20,7 @@ export const AdminTable = ({ admins, handleDelete }) => {
             {admins?.map(admin => (
               <tr
                 key={admin._id}
-                className={` transition-colors ${
+                className={`transition-colors ${
                   admin._id == isBoss
                     ? 'bg-amber-100 cursor-not-allowed'
                     : 'hover:bg-blue-50 cursor-pointer'
@@ -57,8 +57,9 @@ export const AdminTable = ({ admins, handleDelete }) => {
                 <td className='py-3 px-2 sm:px-6 text-gray-600'>
                   <div
                     className={
-                      admin._id === isBoss &&
-                      'font-bold text-yellow-400 flex items-start gap-1'
+                      admin._id === isBoss
+                        ? 'font-bold text-yellow-400 flex items-start gap-1'
+                        : ''
                     }
                   >
                     {admin.firstName || '-'}

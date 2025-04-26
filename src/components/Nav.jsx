@@ -51,7 +51,7 @@ export const Nav = () => {
 
   function handleLogout () {
     if (!window.confirm('Админ сифатида чиқишни хоҳлайсизми?')) return
-    Cookies.remove('admin_token')
+    Cookies.remove('token')
     window.location.href = '/'
   }
 

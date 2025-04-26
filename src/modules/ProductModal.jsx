@@ -45,10 +45,10 @@ export const ProductModal = ({ isOpen, setIsOpen }) => {
         count: orderData.count
       })
       mutate('/goods')
+      setIsOpen(false)
     } catch (err) {
       setError(err.response?.data?.message || 'Нимадир нотўғри кетди')
     } finally {
-      setIsOpen(false)
       setLoading(false)
     }
   }
