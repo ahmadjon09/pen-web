@@ -54,7 +54,8 @@ export default function App () {
             { path: 'login', element: <Login /> },
             { path: 'orders', element: <Orders /> },
             { path: 'bricks', element: <Bricks /> },
-            { path: 'workers', element: <Workers /> }
+            { path: 'workers', element: <Workers /> },
+            { path: '*', element: <Error /> }
           ]
         }
       : {
