@@ -21,7 +21,7 @@ export const Error = () => {
             Ортга қайтиш
           </Link>
           <a
-            href='https://t.me/MoliyaviyYordamBot'
+            href='https://t.me/donateWebbot'
             target='_blank'
             rel='noopener noreferrer'
             className='inline-block rounded-full bg-green-600 hover:bg-green-700 transition-colors px-6 py-3 text-white font-bold text-lg shadow-lg'

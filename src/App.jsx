@@ -15,8 +15,9 @@ import { Admins } from './pages/Admins'
 import { Home } from './pages/Goods/Home'
 import { Orders } from './pages/Orders'
 import { Bricks } from './pages/Bricks'
-import { Workers } from './pages/Workers'
+import { Workers } from './pages/Workers/Workers'
 import { Error } from './components/Error'
+import { WorkerDay } from './pages/Workers/WorkersDay'
 
 export default function App () {
   const { isAuth, isPending } = useSelector(state => state.admin)
@@ -56,7 +57,7 @@ export default function App () {
             { path: 'orders', element: <Orders /> },
             { path: 'bricks', element: <Bricks /> },
             { path: 'workers', element: <Workers /> },
-            { path: 'err', element: <Error /> },
+            { path: 'day', element: <WorkerDay /> },
             { path: '*', element: <Error /> }
           ]
         }

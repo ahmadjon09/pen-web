@@ -1,14 +1,14 @@
 import { Plus } from 'lucide-react'
 import useSWR, { mutate } from 'swr'
-import Axios from '../Axios'
-import '../assets/css/home.css'
-import { LoadingState } from '../components/loading-state'
-import { ErrorState } from '../components/error-state'
+import Axios from '../../Axios'
+import '../../assets/css/home.css'
+import { LoadingState } from '../../components/loading-state'
+import { ErrorState } from '../../components/error-state'
 import { useEffect, useState } from 'react'
-import { EmptyState } from '../components/Workers/empty-state'
-import { WorkerTable } from '../components/Workers/worker-table'
-import { SearchBar } from '../components/Workers/search-bar'
-import { WorkerModal } from '../modules/WorkerModal'
+import { EmptyState } from '../../components/Workers/empty-state'
+import { WorkerTable } from '../../components/Workers/worker-table'
+import { SearchBar } from '../../components/Workers/search-bar'
+import { WorkerModal } from '../../modules/WorkerModal'
 
 export const Workers = () => {
   const { data, isLoading, error } = useSWR('/worker-name', Axios)

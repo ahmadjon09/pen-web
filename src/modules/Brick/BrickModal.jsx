@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Axios from '../Axios'
+import Axios from '../../Axios'
 import { Loader2, Save } from 'lucide-react'
 import { mutate } from 'swr'
 

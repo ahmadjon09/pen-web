@@ -1,8 +1,18 @@
-import { Trash2 } from 'lucide-react'
+import { MinusCircle, PlusSquareIcon, Trash2 } from 'lucide-react'
 import { formatCount } from '../../middlewares/format'
 import moment from 'moment-timezone'
+import { useState } from 'react'
+import { Control } from '../../modules/Brick/Control'
 
 export const ProductTable = ({ products, handleDelete }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [mode, setMode] = useState('')
+  const [id, setId] = useState(null)
+  const Controlhandle = (id, mode) => {
+    setIsModalOpen(true)
+    setMode(mode)
+    setId(id)
+  }
   return (
     <div className='bg-white rounded-lg shadow-md overflow-hidden'>
       <div className='h-full w-full pb-10 overflow-x-auto'>
@@ -46,6 +56,18 @@ export const ProductTable = ({ products, handleDelete }) => {
                 <td className='py-3 px-2 sm:px-4 text-center'>
                   <div className='flex justify-center items-center gap-2'>
                     <button
+                      onClick={() => Controlhandle(product._id, 'plus')}
+                      className='bg-blue-500 text-white rounded-md p-1.5 hover:bg-blue-600 transition-colors'
+                    >
+                      <PlusSquareIcon className='text-white w-4 h-4' />
+                    </button>
+                    <button
+                      onClick={() => Controlhandle(product._id, 'minus')}
+                      className='bg-purple-500 text-white rounded-md p-1.5 hover:bg-purple-600 transition-colors'
+                    >
+                      <MinusCircle className='text-white w-4 h-4' />
+                    </button>
+                    <button
                       onClick={e => {
                         e.stopPropagation()
                         handleDelete(product._id)
@@ -61,6 +83,9 @@ export const ProductTable = ({ products, handleDelete }) => {
           </tbody>
         </table>
       </div>
+      {isModalOpen && (
+        <Control id={id} setIsOpen={setIsModalOpen} mode={mode} />
+      )}
     </div>
   )
 }

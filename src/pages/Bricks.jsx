@@ -7,7 +7,7 @@ import { ErrorState } from '../components/error-state'
 import { useState } from 'react'
 import { EmptyState } from '../components/Brick/empty-state'
 import { ProductTable } from '../components/Brick/product-table'
-import { BrickModal } from '../modules/BrickModal'
+import { BrickModal } from '../modules/Brick/BrickModal'
 
 export const Bricks = () => {
   const { data, isLoading, error } = useSWR('/gish', Axios)
