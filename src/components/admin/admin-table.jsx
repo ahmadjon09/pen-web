@@ -1,5 +1,5 @@
 import { BadgeCheck, Trash2 } from 'lucide-react'
-import VIP from '../../assets/vip.png'
+import VIP from '../../assets/Vip.png'
 
 export const AdminTable = ({ admins, handleDelete }) => {
   const isBoss = '673d5e4960bd823f58d06592'
